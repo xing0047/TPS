@@ -45,7 +45,19 @@ git clone https://github.com/xing0047/TPS.git
 pip install -e ./TPS
 ```
 
-## Preparation
+## Data Preparation
+1. [Cityscapes-Seq](https://www.cityscapes-dataset.com/)
+```
+${TPS_ROOT}
+|-- data
+`-- |-- Cityscapes
+    `-- |-- leftImg8bit_sequence
+    `-- |-- gtFine
+```
+
+## Pretrained Models
+
+## Optical Flow Estimation
 
 ## Train and Test
 
