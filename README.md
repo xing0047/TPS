@@ -5,7 +5,7 @@ Video semantic segmentation has achieved great progress under the supervision of
 
 ## Main Results
 #### SYNTHIA-Seq => Cityscapes-Seq
-| Methods       | road | sidewalk | building | pole | light | sign | vegetation | sky | person | rider | car | mIoU |
+| Methods       | road | side. | buil. | pole | light | sign | vege. | sky | per. | rider | car | mIoU |
 |---------------|------|----------|----------|------|-------|------|------------|-----|--------|-------|-----|------|
 | Source only   | 56.3 | 26.6 | 75.6 | 25.5 |  5.7 | 15.6 | 71.0 | 58.5 | 41.7 | 17.1 | 27.9 | 38.3 |
 | DA-VSN        | 89.4 | 31.0 | 77.4 | 26.1 |  9.1 | 20.4 | 75.4 | 74.6 | 42.9 | 16.1 | 82.4 | 49.5 |
@@ -13,7 +13,7 @@ Video semantic segmentation has achieved great progress under the supervision of
 | **TPS (ours)**| **91.2**| **53.7** | 74.9 | 24.6 | **17.9** | **39.3** | 68.1 | 59.7 | **57.2** | **20.3** | **84.5** | **53.8** |
 
 #### VIPER => Cityscapes-Seq
-| Methods     | rode | sidewalk | building | fence | light | sign | vegetation | terrain | sky | person | car | truck | bus | motor | bike | mIoU |
+| Methods     | rode | side. | buil. | fence | light | sign | vege. | terr. | sky | per. | car | truck | bus | motor | bike | mIoU |
 |-------------|------|----------|----------|-------|-------|------|------------|---------|-----|--------|-----|-------|-----|-------|------|------|
 | Source only | 56.7 | 18.7 | 78.7 |  6.0 | 22.0 | 15.6 | 81.6 | 18.3 | 80.4 | 59.9 | 66.3 |  4.5 | 16.8 | 20.4 | 10.3 | 37.1 |
 | PixMatch    | 79.4 | 26.1 | 84.6 | 16.6 | 28.7 | 23.0 | 85.0 | 30.1 | 83.7 | 58.6 | 75.8 | 34.2 | 45.7 | 16.6 | 12.4 | 46.7 |
