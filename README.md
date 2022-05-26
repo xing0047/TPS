@@ -7,19 +7,13 @@ Video semantic segmentation has achieved great progress under the supervision of
 #### SYNTHIA-Seq => Cityscapes-Seq
 | Methods       | road | sidewalk | building | pole | light | sign | vegetation | sky | person | rider | car | mIoU |
 |---------------|------|----------|----------|------|-------|------|------------|-----|--------|-------|-----|------|
-| Source only   | 56.3 |
-| AdvEnt        | 85.7 | 
-| CBST          | 64.1 |
-| IDA           | 87.0 | 
-| CRST          | 70.4 |
-| CrCDA         | 86.5 |
-| RDA           | 84.7 | 
-| FDA           | 84.1 | 
-| DA-VSN        | 89.4 | 
-| PixMatch      | 90.2 | 
-| **TPS (ours)**| **91.2**|
+| Source only   | 56.3 | 26.6 | 75.6 | 25.5 |  5.7 | 15.6 | 71.0 | 58.5 | 41.7 | 17.1 | 27.9 | 38.3 |
+| DA-VSN        | 89.4 | 31.0 | 77.4 | 26.1 |  9.1 | 20.4 | 75.4 | 74.6 | 42.9 | 16.1 | 82.4 | 49.5 |
+| PixMatch      | 90.2 | 49.9 | 75.1 | 23.1 | 17.4 | 34.2 | 67.1 | 49.9 | 55.8 | 14.0 | 84.3 | 51.0 |
+| **TPS (ours)**| **91.2**| **53.7** | 74.9 | 24.6 | **17.9** | **39.3** | 68.1 | 59.7 | **57.2** | **20.3** | **84.5** | **53.8** |
 
 #### VIPER => Cityscapes-Seq
+
 
 ## Environment
 The code is developed based on PyTorch. The code is developed and trained on a single 2080Ti GPU. Other platforms or multiple GPUs are not tested.
