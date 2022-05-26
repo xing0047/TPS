@@ -5,19 +5,19 @@ Video semantic segmentation has achieved great progress under the supervision of
 
 ## Main Results
 #### SYNTHIA-Seq => Cityscapes-Seq
-|   Methods   |
-|-------------|
-| Source only |
-| AdvEnt      |
-| CBST        | 
-| IDA         |
-| CRST        |
-| CrCDA       |
-| RDA         |
-| FDA         |
-| DA-VSN      |
-| PixMatch    |
-| TPS (ours)  |
+| Methods       | road | sidewalk | building | pole | light | sign | vegetation | sky | person | rider | car | mIoU |
+|---------------|------|----------|----------|------|-------|------|------------|-----|--------|-------|-----|------|
+| Source only   | 56.3 |
+| AdvEnt        | 85.7 | 
+| CBST          | 64.1 |
+| IDA           | 87.0 | 
+| CRST          | 70.4 |
+| CrCDA         | 86.5 |
+| RDA           | 84.7 | 
+| FDA           | 84.1 | 
+| DA-VSN        | 89.4 | 
+| PixMatch      | 90.2 | 
+| **TPS (ours)**| **91.2**|
 
 #### VIPER => Cityscapes-Seq
 
