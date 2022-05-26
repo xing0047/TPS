@@ -50,9 +50,9 @@ pip install -e ./TPS
 ```
 ${TPS_ROOT}
 |-- data
-`-- |-- Cityscapes
-    `-- |-- leftImg8bit_sequence
-    `-- |-- gtFine
+    |-- Cityscapes
+        |-- leftImg8bit_sequence
+        |-- gtFine
 ```
 
 ## Pretrained Models
