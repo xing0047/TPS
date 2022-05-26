@@ -67,7 +67,7 @@ TPS/data/SynthiaSeq/SEQS-04-DAWN/
 ```
 
 ## Pretrained Models
-Download [here]() and put them under TPS/pretrained\_models.
+Download [here]() and put them under pretrained\_models.
 
 ## Optical Flow Estimation
 
