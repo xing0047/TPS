@@ -5,8 +5,20 @@ Video semantic segmentation has achieved great progress under the supervision of
 
 ## Main Results
 #### SYNTHIA-Seq => Cityscapes-Seq
-| Methods | road | side. | build. | fence | vege. | terr. | sky | person | car | truck | bus | motor | bike | mIoU |
-|---------|------|-------|--------|-------|-------|-------|-----|--------|-----|-------|-----|-------|------|------|
+|   Methods   |
+|-------------|
+| Source only |
+| AdvEnt      |
+| CBST        | 
+| IDA         |
+| CRST        |
+| CrCDA       |
+| RDA         |
+| FDA         |
+| DA-VSN      |
+| PixMatch    |
+| TPS (ours)  |
+
 #### VIPER => Cityscapes-Seq
 
 ## Environment
