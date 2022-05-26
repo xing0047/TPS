@@ -20,7 +20,7 @@ Video semantic segmentation has achieved great progress under the supervision of
 | DA-VSN        | 86.8 | 36.7 | 83.5 | 22.9 | 30.2 | 27.7 | 83.6 | 26.7 | 80.3 | 60.0 | 79.1 | 20.3 | 47.2 | 21.2 | 11.4 | 47.8 |
 | **TPS** | 82.4 | **36.9** | 79.5 | 9.0 | 26.3 | **29.4** | 78.5 | 28.2 | 81.8 | **61.2** | **80.2** | **39.8** | 40.3 | 28.5 | 31.7 | **48.9** |
 
-**Note: PixMatch is reproduced with replacing the image segmentation backbone to a video segmentaion version. For details please refer to ACCEL.**
+**Note: PixMatch is reproduced with replacing the image segmentation backbone to a video segmentaion one.**
 
 ## Environment
 The code is developed based on PyTorch. All experiments are carried out on a single 2080Ti GPU. Other platforms or multiple GPUs are not tested.
