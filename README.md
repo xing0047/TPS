@@ -19,7 +19,7 @@ pip install -e ./ADVENT
 
 3. clone the repo
 ```bash
-git clone 
+git clone https://github.com/xing0047/TPS.git
 pip install -e ./TPS
 ```
 
