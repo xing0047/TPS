@@ -19,6 +19,7 @@ Video semantic segmentation has achieved great progress under the supervision of
 | PixMatch    | 79.4 | 26.1 | 84.6 | 16.6 | 28.7 | 23.0 | 85.0 | 30.1 | 83.7 | 58.6 | 75.8 | 34.2 | 45.7 | 16.6 | 12.4 | 46.7 |
 | DA-VSN      | 86.8 | 36.7 | 83.5 | 22.9 | 30.2 | 27.7 | 83.6 | 26.7 | 80.3 | 60.0 | 79.1 | 20.3 | 47.2 | 21.2 | 11.4 | 47.8 |
 | **TPS (ours)** | 82.4 | **36.9** | 79.5 | 9.0 | 26.3 | **29.4** | 78.5 | 28.2 | 81.8 | **61.2** | **80.2** | **39.8** | 40.3 | 28.5 | 31.7 | **48.9** |
+
 **Note: PixMatch is reproduced with replacing the image segmentation backbone to a video segmentaion version. For details please refer to ACCEL.**
 
 ## Environment
