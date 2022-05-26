@@ -48,14 +48,26 @@ pip install -e ./TPS
 ## Data Preparation
 1. [Cityscapes-Seq](https://www.cityscapes-dataset.com/)
 ```
-${TPS_ROOT}
-|-- data
-    |-- Cityscapes
-        |-- leftImg8bit_sequence
-        |-- gtFine
+TPS/data/Cityscapes/
+TPS/data/Cityscapes/leftImg8bit_sequence/
+TPS/data/Cityscapes/gtFine/
+```
+
+2. [VIPER](https://playing-for-benchmarks.org/download/)
+```
+TPS/data/Viper/
+TPS/data/Viper/train/img/
+TPS/data/Viper/train/cls/
+```
+
+3. [Synthia-Seq](http://synthia-dataset.cvc.uab.cat/SYNTHIA_SEQS/SYNTHIA-SEQS-04-DAWN.rar)
+```
+TPS/data/SynthiaSeq/
+TPS/data/SynthiaSeq/SEQS-04-DAWN/
 ```
 
 ## Pretrained Models
+Download [here]() and put them under TPS/pretrained_models.
 
 ## Optical Flow Estimation
 
@@ -64,7 +76,7 @@ ${TPS_ROOT}
 ## Evaluation
 
 ## Acknowledgement
-This codebase is based on [DA-VSN](https://github.com/Dayan-Guan/DA-VSN).
+This codebase is heavily borrowed from [DA-VSN](https://github.com/Dayan-Guan/DA-VSN).
 
 ## Contact
 If you have any questions, feel free to contact: xing0047@e.ntu.edu.sg
