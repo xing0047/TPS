@@ -70,7 +70,7 @@ TPS/data/SynthiaSeq/SEQS-04-DAWN/
 Download [here]() and put them under pretrained\_models.
 
 ## Optical Flow Estimation
-For quick preparation, download all of the estimated optical flow from Google Drive provided below.
+For quick preparation, download the estimated optical flow of all datasets here.
 - Synthia-Seq
 
   [train]()
