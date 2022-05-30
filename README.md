@@ -72,9 +72,13 @@ Download [here]() and put them under pretrained\_models.
 ## Optical Flow Estimation
 For quick preparation, download the estimated optical flow of all datasets here.
 
-- [Synthia-Seq](https://drive.google.com/file/d/18q6KH-beoBp5jSr1Pl1lMiEcb2te2vxq/view?usp=sharing)
+- Synthia-Seq 
 
-- [VIPER](https://drive.google.com/file/d/1aOeyBLECPSW_ujMBE9RXKjVhTbhw4L2O/view?usp=sharing)
+  [train](https://drive.google.com/file/d/18q6KH-beoBp5jSr1Pl1lMiEcb2te2vxq/view?usp=sharing)
+
+- VIPER
+
+  [train](https://drive.google.com/file/d/1aOeyBLECPSW_ujMBE9RXKjVhTbhw4L2O/view?usp=sharing)
 
 - Cityscapes-Seq
   
