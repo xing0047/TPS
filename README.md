@@ -53,7 +53,7 @@ TPS/data/Cityscapes/leftImg8bit_sequence/
 TPS/data/Cityscapes/gtFine/
 ```
 
-2. [VIPER](https://playing-for-benchmarks.org/download/)
+2. [VIPER](https://playing-for-bencVhmarks.org/download/)
 ```
 TPS/data/Viper/
 TPS/data/Viper/train/img/
@@ -70,11 +70,11 @@ TPS/data/SynthiaSeq/SEQS-04-DAWN/
 Download [here]() and put them under pretrained\_models.
 
 ## Optical Flow Estimation
-- Synthia-Seq 
+- Synthia-Seq \\
   [train]()
-- Viper 
+- VIPER \\
   [train](https://drive.google.com/drive/folders/1i_-yw9rS7-aa7Cn5ilIMbkUKwr1JpUFA?usp=sharing)
-- Cityscapes-Seq 
+- Cityscapes-Seq \\
   [train]() | [val]()
 
 ## Train and Test
