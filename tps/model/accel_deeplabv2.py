@@ -146,40 +146,12 @@ class ResNetMulti(nn.Module):
             kf1 = self.layer4(kf)
             kf = self.layer6(kf1)
 
-        # import numpy as np
-        # np.save('tsne_feat.npy', torch.cat((cf1, kf1), dim=1).detach().cpu().numpy())
-
-        # kf_aux_cpu = kf_aux.cpu().numpy()
-        # kf_cpu = kf.cpu().numpy()
         interp_flow2cf = nn.Upsample(size=(cf.shape[-2], cf.shape[-1]), mode='bilinear', align_corners=True)
         interp_flow2cf_ratio = cf.shape[-2] / flow.shape[-2]
-        # flow_cf = interp_flow2cf(flow) * interp_flow2cf_ratio
-        # flow_cf = flow_cf.cpu().numpy()
-        # import numpy as np
-        # kf_aux_rec = np.zeros(cf_aux.shape)
-        # kf_rec = np.zeros(cf.shape)
-        # rec_positions = np.zeros(cf.shape)
-        # for x in range(cf.shape[-1]):
-        #     for y in range(cf.shape[-2]):
-        #         x_flow = int(round(x - flow_cf[:, 0, y, x][0]))
-        #         y_flow = int(round(y - flow_cf[:, 1, y, x][0]))
-        #         if x_flow >= 0 and x_flow < flow_cf.shape[-1] and y_flow >= 0 and y_flow < flow_cf.shape[-2]:
-        #             kf_aux_rec[:, :, y_flow, x_flow] = kf_aux_cpu[:, :, y, x]
-        #             kf_rec[:, :, y_flow, x_flow] = kf_cpu[:, :, y, x]
-        #             rec_positions[:, :, y_flow, x_flow] = 1
-        # kf_aux_rec = torch.from_numpy(kf_aux_rec)
-        # kf_rec = torch.from_numpy(kf_rec)
-        # rec_positions = torch.from_numpy(rec_positions)
-        # pred_aux = self.sf_layer(torch.cat((cf_aux, (rec_positions*kf_aux_rec).float().cuda(device)), dim=1))
-        # pred = self.sf_layer(torch.cat((cf, (rec_positions*kf_rec).float().cuda(device)), dim=1))
+        
         flow_cf = (interp_flow2cf(flow) * interp_flow2cf_ratio).float().cuda(device)
-        ### check if the function is correct: self.warp_bilinear(kf_aux, flow_cf)
-        ### visulize cf and self.warp_bilinear(kf, flow_cf)
         pred_aux = self.sf_layer(torch.cat((cf_aux, self.warp_bilinear(kf_aux, flow_cf)), dim=1))
         pred = self.sf_layer(torch.cat((cf, self.warp_bilinear(kf, flow_cf)), dim=1))
-
-        import numpy as np
-        np.save('tsne_feat.npy', torch.cat((cf, self.warp_bilinear(kf, flow_cf)), dim=1).detach().cpu().numpy())
 
         return pred_aux, pred, cf_aux, cf, kf_aux, kf
 

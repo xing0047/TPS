@@ -6,8 +6,8 @@ DATA_LIST_SOURCE: ../dataset/SynthiaSeq_list/train.txt
 TENSORBOARD_DIR: ../../tensorboard/DA-VSN/synthia/
 NUM_CLASSES: 12
 TRAIN:
-  EARLY_STOP: 40000
-  flow_path_src: ../../data/Estimated_optical_flow_SynthiaSeq_train
+  EARLY_STOP: 120000
+  flow_path_src: ../../data/estimated_optical_flow_synthiaseq_train
   DA_METHOD: DAVSN
   INFO_TARGET: ../dataset/CityscapesSeq_list/info_SynthiaSeq.json
   SET_SOURCE: train

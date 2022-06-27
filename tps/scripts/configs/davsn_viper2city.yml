@@ -5,7 +5,7 @@ DATA_LIST_SOURCE: ../dataset/Viper_list/train.txt
 NUM_CLASSES: 15
 TENSORBOARD_DIR: ../../tensorboard/DAVSN/viper
 TRAIN:
-  flow_path_src: ../../data/Estimated_optical_flow_Viper_train
+  flow_path_src: ../../data/estimated_optical_flow_viper_train
   DA_METHOD: DAVSN
   INFO_TARGET: ../dataset/CityscapesSeq_list/info_Viper.json
   INPUT_SIZE_SOURCE:

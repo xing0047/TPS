@@ -1,21 +1,26 @@
-EXP_NAME: syn2city_source_only
+EXP_NAME: syn2city_PixMatch
 SOURCE: SynthiaSeq
 DATA_DIRECTORY_SOURCE: ../../data/SynthiaSeq/SEQS-04-DAWN
 DATA_LIST_SOURCE: ../dataset/SynthiaSeq_list/train.txt
-### train on 12 classes and evaluate on 11 classes
 NUM_CLASSES: 12
 TRAIN:
+  LEARNING_RATE: 0.00025
   EARLY_STOP: 40000
+  SCALING_RATIO:
+    - 0.8
+    - 1.2
   flow_path_src: ../../data/estimated_optical_flow_synthiaseq_train
-  DA_METHOD: SourceOnly
+  DA_METHOD: PixMatch
   INFO_TARGET: ../dataset/CityscapesSeq_list/info_SynthiaSeq.json
   SET_SOURCE: train
-  SAVE_PRED_EVERY: 1000
   INPUT_SIZE_SOURCE:
     - 1280
     - 640
+  SNAPSHOT_DIR: ../../experiments/snapshots/pixmatch_syn2city
+  SAVE_PRED_EVERY: 100
 TEST:
-  SNAPSHOT_STEP: 1000
-  SNAPSHOT_START_ITER: 1000
   MODE: video_best
   INFO_TARGET: ../dataset/CityscapesSeq_list/info_SynthiaSeq.json
+  SNAPSHOT_DIR: ['../../experiments/snapshots/pixmatch_syn2city']
+  SNAPSHOT_STEP: 100
+  SNAPSHOT_START_ITER: 100
