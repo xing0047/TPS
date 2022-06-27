@@ -39,7 +39,7 @@ git clone https://github.com/valeoai/ADVENT
 pip install -e ./ADVENT
 ```
 
-3. clone the repo
+3. clone the current repo
 ```bash
 git clone https://github.com/xing0047/TPS.git
 pip install -e ./TPS
@@ -79,4 +79,4 @@ Download [here]() and put them under TPS/pretrained\_models.
 This codebase is heavily borrowed from [DA-VSN](https://github.com/Dayan-Guan/DA-VSN).
 
 ## Contact
-If you have any questions, feel free to contact: xing0047@e.ntu.edu.sg
+If you have any questions, feel free to contact: dayan.guan@outlook.com and xing0047@e.ntu.edu.sg.
