@@ -87,11 +87,13 @@ For quick preparation, please download the estimated optical flow of all dataset
 ## Train and Test
 - Train
 ```
+  cd tps/scripts
   CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/tps_syn2city.yml
   CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/tps_viper2city.yml
 ```
 - Test (may in parallel with Train)
 ```
+  cd tps/scripts
   CUDA_VISIBLE_DEVICES=1 python test.py --cfg configs/tps_syn2city.yml
   CUDA_VISIBLE_DEVICES=1 python test.py --cfg configs/tps_viper2city.yml
 ```
