@@ -1,6 +1,6 @@
 # Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
 <p align="left">
-<img src="https://github.com/ZheC/Multi-Person-Pose-Estimation/blob/master/readme/dance.gif", width="720">
+<img src="./demo.gif", width="720">
 </p>
 
 ## Abstract
