@@ -42,7 +42,7 @@ pip install -e ./ADVENT
 3. clone the current repo
 ```bash
 git clone https://github.com/xing0047/TPS.git
-pip install -e ./TPS
+pip install -r ./TPS/requirements.txt
 ```
 
 ## Data Preparation
