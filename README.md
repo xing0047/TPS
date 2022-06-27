@@ -45,6 +45,12 @@ git clone https://github.com/xing0047/TPS.git
 pip install -r ./TPS/requirements.txt
 ```
 
+4. resample2d dependency:
+```
+python ./TPS/tps/utils/resample2d_package/setup.py build
+python ./TPS/tps/utils/resample2d_package/setup.py install
+```
+
 ## Data Preparation
 1. [Cityscapes-Seq](https://www.cityscapes-dataset.com/)
 ```

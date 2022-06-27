@@ -36,7 +36,7 @@ PySocks==1.7.1
 python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
 pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1633452062248/work
 PyWavelets @ file:///tmp/build/80754af9/pywavelets_1601658315997/work
-PyYAML==5.4.1
+pyyaml==5.4.1
 qudida==0.0.4
 requests==2.27.1
 resample2d-cuda==0.0.0
