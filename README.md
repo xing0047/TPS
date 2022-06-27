@@ -1,5 +1,5 @@
 # Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
-<p align="left">
+<p align="center">
 <img src="./demo.gif", width="720">
 </p>
 
@@ -36,7 +36,7 @@ conda activate TPS
 conda install -c menpo opencv
 pip install torch==1.2.0 torchvision==0.4.0
 ```
-2. clone the [ADVENT repo](https://github.com/valeoai/ADVENT)
+2. clone the [ADVENT repo](https://leftgithub.com/valeoai/ADVENT)
 ```bash
 git clone https://github.com/valeoai/ADVENT
 pip install -e ./ADVENT
