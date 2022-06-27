@@ -85,11 +85,19 @@ For quick preparation, please download the estimated optical flow of all dataset
   [train](https://drive.google.com/file/d/193uZifde7WiuImwAgshkPTt1Z6zgE3z8/view?usp=sharing) | [val](https://drive.google.com/file/d/1USizndlUewVb8Eqh4SV6uNuLCEfV9vzU/view?usp=sharing)
   
 ## Train and Test
-
-## Evaluation
-
+- Train
+```
+  CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/tps_syn2city.yml
+  CUDA_VISIBLE_DEVICES=0 python train.py --cfg configs/tps_viper2city.yml
+```
+- Test (may in parallel with Train)
+```
+  CUDA_VISIBLE_DEVICES=1 python test.py --cfg configs/tps_syn2city.yml
+  CUDA_VISIBLE_DEVICES=1 python test.py --cfg configs/tps_viper2city.yml
+```
+ 
 ## Acknowledgement
 This codebase is heavily borrowed from [DA-VSN](https://github.com/Dayan-Guan/DA-VSN).
 
 ## Contact
-If you have any questions, feel free to contact: dayan.guan@outlook.com and xing0047@e.ntu.edu.sg.
+If you have any questions, feel free to contact: dayan.guan@outlook.com Other platforms or multiple GPUs are not tested.and xing0047@e.ntu.edu.sg.
