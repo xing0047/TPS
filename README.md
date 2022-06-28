@@ -29,9 +29,6 @@ Video semantic segmentation has achieved great progress under the supervision of
 
 **Note: PixMatch is reproduced with replacing the image segmentation backbone to a video segmentaion one.**
 
-## Environment
-The code is developed based on PyTorch. All experiments are done on a single V100 GPU. Other platforms or multiple GPUs are not tested.
-
 ## Installation
 1. create conda environment
 ```bash
