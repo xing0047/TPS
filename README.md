@@ -1,4 +1,8 @@
-# Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
+# [ECCV 2022] Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
+
+### Updates
+- *03/2022*: Codes has been released. 
+
 <p align="center">
 <img src="./demo.gif", width="720">
 </p>
