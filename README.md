@@ -112,4 +112,4 @@ For quick preparation, please download the estimated optical flow of all dataset
 This codebase is heavily borrowed from [DA-VSN](https://github.com/Dayan-Guan/DA-VSN).
 
 ## Contact
-If you have any questions, feel free to contact: dayan.guan@outlook.com or xing0047@e.ntu.edu.sg.
+If you have any questions, feel free to contact: xing0047@e.ntu.edu.sg or dayan.guan@outlook.com.
