@@ -4,7 +4,7 @@
 - *06/2022*: Codes has been released. 
 
 <p align="center">
-<img src="./demo.gif", width="720">
+<img src="./demo.gif", width="900">
 </p>
 
 ## Abstract
