@@ -1,6 +1,10 @@
-# Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
+# [ECCV 2022] Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
+
+### Updates
+- *06/2022*: Codes has been released. 
+
 <p align="center">
-<img src="./demo.gif", width="720">
+<img src="./demo.gif", width="800">
 </p>
 
 ## Abstract
@@ -24,9 +28,6 @@ Video semantic segmentation has achieved great progress under the supervision of
 | **TPS**       | 82.4 | **36.9** | 79.5 | 9.0 | 26.3 | **29.4** | 78.5 | 28.2 | 81.8 | **61.2** | **80.2** | **39.8** | 40.3 | 28.5 | 31.7 | **48.9** |
 
 **Note: PixMatch is reproduced with replacing the image segmentation backbone to a video segmentaion one.**
-
-## Environment
-The code is developed based on PyTorch. All experiments are done on a single 2080Ti GPU. Other platforms or multiple GPUs are not tested.
 
 ## Installation
 1. create conda environment
@@ -111,4 +112,4 @@ For quick preparation, please download the estimated optical flow of all dataset
 This codebase is heavily borrowed from [DA-VSN](https://github.com/Dayan-Guan/DA-VSN).
 
 ## Contact
-If you have any questions, feel free to contact: dayan.guan@outlook.com or xing0047@e.ntu.edu.sg.
+If you have any questions, feel free to contact: xing0047@e.ntu.edu.sg or dayan.guan@outlook.com.
