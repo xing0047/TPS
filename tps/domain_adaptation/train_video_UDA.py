@@ -148,7 +148,7 @@ def train_TPS(model, source_loader, target_loader, cfg):
         src_img_cf, src_label, src_img_kf, src_label_kf, _, src_img_name, src_cf, src_kf = source_batch
 
         _, target_batch = target_loader_iter.__next__()
-        trg_img_d, trg_img_c, trg_img_b, _, d,  _, name, frames = target_batch 
+        trg_img_d, trg_img_c, trg_img_b, trg_img_a, d,  _, name, frames = target_batch 
         frames = frames.squeeze().tolist()
         ##  match
         src_cf = hist_match(src_cf, d)
@@ -192,21 +192,25 @@ def train_TPS(model, source_loader, target_loader, cfg):
         flow_int16_x10_name_trg = file_name.replace('leftImg8bit.png', str(frames[1]).zfill(6) + '_int16_x10')
         flow_int16_x10_trg = np.load(os.path.join(cfg.TRAIN.flow_path, flow_int16_x10_name_trg + '.npy'))
         trg_flow_d = torch.from_numpy(flow_int16_x10_trg / 10.0).permute(2, 0, 1).unsqueeze(0)
-        # flow: c -> b
-        file_name = file_name.replace(str(frames[0]).zfill(6), str(frames[1]).zfill(6))
+        # flow: d -> b
         flow_int16_x10_name_trg = file_name.replace('leftImg8bit.png', str(frames[2]).zfill(6) + '_int16_x10')
         flow_int16_x10_trg = np.load(os.path.join(cfg.TRAIN.flow_path, flow_int16_x10_name_trg + '.npy'))
-        trg_flow_c = torch.from_numpy(flow_int16_x10_trg / 10.0).permute(2, 0, 1).unsqueeze(0)
+        trg_flow = torch.from_numpy(flow_int16_x10_trg / 10.0).permute(2, 0, 1).unsqueeze(0)
+        # flow: b -> a 
+        file_name = file_name.replace(str(frames[0]).zfill(6), str(frames[2]).zfill(6))
+        flow_int16_x10_name_trg = file_name.replace('leftImg8bit.png', str(frames[3]).zfill(6) + '_int16_x10')
+        flow_int16_x10_trg = np.load(os.path.join(cfg.TRAIN.flow_path, flow_int16_x10_name_trg + '.npy'))
+        trg_flow_b = torch.from_numpy(flow_int16_x10_trg / 10.0).permute(2, 0, 1).unsqueeze(0)
         
-        trg_flow = trg_flow_d
 
         ##  augmentation  ##
         # flip {c, b}
         flip = random.random() < 0.5
         if flip:
-            trg_img_c_wk = torch.flip(trg_img_c, [3])
-            trg_img_b_wk = torch.flip(trg_img_b, [3])
-            trg_flow_c = torch.flip(trg_flow_b, [3])
+            trg_img_b = torch.flip(trg_img_b, [3])
+            trg_img_a = torch.flip(trg_img_a, [3])
+            trg_flow_b = torch.flip(trg_flow_b, [3])
+            trg_flow = torch.flip(trg_flow, [3])
         # concatenate {d, c}
         trg_img_concat = torch.cat((trg_img_d, trg_img_c), 2)
         # strong augment {d, c}
@@ -219,18 +223,18 @@ def train_TPS(model, source_loader, target_loader, cfg):
         ])
         trg_img_concat_st = aug(torch.squeeze(trg_img_concat)).unsqueeze(dim=0)
         # seperate {d, c}
-        trg_img_d_st = trg_img_concat_st[:, :, 0:512, :]
-        trg_img_c_st = trg_img_concat_st[:, :, 512:, :]
+        trg_img_d = trg_img_concat_st[:, :, 0:512, :]
+        trg_img_c = trg_img_concat_st[:, :, 512:, :]
         # rescale {d, c}
         scale_ratio = np.random.randint(100.0*cfg.TRAIN.SCALING_RATIO[0], 100.0*cfg.TRAIN.SCALING_RATIO[1])/100.0
         trg_scaled_size = (round(input_size_target[1] * scale_ratio / 8) * 8, round(input_size_target[0] * scale_ratio / 8) * 8)
         trg_interp_sc = nn.Upsample(size=trg_scaled_size, mode='bilinear', align_corners=True)
-        trg_img_d_st = trg_interp_sc(trg_img_d_st)
-        trg_img_c_st = trg_interp_sc(trg_img_c_st)
+        trg_img_d = trg_interp_sc(trg_img_d)
+        trg_img_c = trg_interp_sc(trg_img_c)
         ##  Temporal Pseudo Supervision  ##
         # Cross Frame Pseudo Label
         with torch.no_grad():
-            trg_pred_aux, trg_pred, _, _, _, _ = model(trg_img_c_wk.cuda(device), trg_img_b_wk.cuda(device), trg_flow_c, device)
+            trg_pred_aux, trg_pred, _, _, _, _ = model(trg_img_b.cuda(device), trg_img_a.cuda(device), trg_flow_b, device)
             # softmax
             trg_prob = F.softmax(trg_pred)
             trg_prob_aux = F.softmax(trg_pred_aux)
@@ -249,7 +253,7 @@ def train_TPS(model, source_loader, target_loader, cfg):
             # rescale param
             trg_interp_sc2ori = nn.Upsample(size=(trg_pred.shape[-2], trg_pred.shape[-1]), mode='bilinear', align_corners=True)
         # forward prop
-        trg_pred_aux, trg_pred, _, _, _, _ = model(trg_img_d_st.cuda(device), trg_img_c_st.cuda(device), trg_flow_d, device)
+        trg_pred_aux, trg_pred, _, _, _, _ = model(trg_img_d.cuda(device), trg_img_c.cuda(device), trg_flow_d, device)
         # rescale
         trg_pred = trg_interp_sc2ori(trg_pred)
         trg_pred_aux = trg_interp_sc2ori(trg_pred_aux)
