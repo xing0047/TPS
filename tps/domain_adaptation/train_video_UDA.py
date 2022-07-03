@@ -150,6 +150,7 @@ def train_TPS(model, source_loader, target_loader, cfg):
         _, target_batch = target_loader_iter.__next__()
         trg_img_d, trg_img_c, trg_img_b, trg_img_a, d,  _, name, frames = target_batch 
         frames = frames.squeeze().tolist()
+        
         ##  match
         src_cf = hist_match(src_cf, d)
         src_kf = hist_match(src_kf, d)
@@ -187,6 +188,9 @@ def train_TPS(model, source_loader, target_loader, cfg):
 
         ####  unsupervised | target  ####
         ##  optical flow  ##
+        '''
+            {d, c} or {b, a}: pair of consecutive frames extracted from the same video
+        '''
         file_name = name[0].split('/')[-1]
         # flow: d -> c
         flow_int16_x10_name_trg = file_name.replace('leftImg8bit.png', str(frames[1]).zfill(6) + '_int16_x10')
@@ -329,6 +333,8 @@ class GaussianBlur(object):
     def __call__(self, img):
         return img.filter(ImageFilter.GaussianBlur(radius=self.radius))
         
+<<<<<<< HEAD
+=======
 class EMA(object):
 
     def __init__(self, model, alpha=0.999):
@@ -371,3 +377,4 @@ class EMA(object):
         }
 
 
+>>>>>>> df2eee379fb038dc85cfe2b0511b2465d4dbf1e4
