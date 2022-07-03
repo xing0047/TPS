@@ -32,26 +32,17 @@ cfg.TRAIN.WEIGHT_DECAY = 0.0005
 cfg.TRAIN.POWER = 0.9
 cfg.TRAIN.LAMBDA_SEG_MAIN = 1.0
 cfg.TRAIN.LAMBDA_SEG_AUX = 0.1
-cfg.TRAIN.LEARNING_RATE_D = 1e-4
-cfg.TRAIN.LAMBDA_ADV_MAIN = 0.001
-cfg.TRAIN.LAMBDA_ADV_AUX = 0.0002
 cfg.TRAIN.MAX_ITERS = 250000
 cfg.TRAIN.EARLY_STOP = 120000
-cfg.TRAIN.EMA_DECAY = 0.999
-# cfg.TRAIN.SAVE_PRED_EVERY = 1000
 cfg.TRAIN.SAVE_PRED_EVERY = 100
 cfg.TRAIN.SNAPSHOT_DIR = ''
 cfg.TRAIN.RANDOM_SEED = 1234
 cfg.TRAIN.TENSORBOARD_LOGDIR = ''
 cfg.TRAIN.TENSORBOARD_VIZRATE = 100
+cfg.TRAIN.LAMBDA_T = 1.0
 
-cfg.TRAIN.LAMBDA_T = 0.5
-
-# WARM UP
-cfg.TRAIN.WARM_UP = 0
-
-# DA-VSN
-cfg.TRAIN.DA_METHOD = 'DAVSN'
+# TPS
+cfg.TRAIN.DA_METHOD = 'TPS'
 cfg.NUM_CLASSES = 15
 cfg.SOURCE = 'Viper'
 cfg.TARGET = 'CityscapesSeq'
@@ -63,18 +54,12 @@ cfg.DATA_DIRECTORY_TARGET = str(project_root / 'data/Cityscapes')
 cfg.TRAIN.MODEL = 'ACCEL_DeepLabv2'
 cfg.TRAIN.flow_path_src = '../../data/estimated_optical_flow_viper_train'
 cfg.TRAIN.flow_path = '../../data/estimated_optical_flow_cityscapes_seq_train'
-cfg.TRAIN.lamda_sa = 1.0
-cfg.TRAIN.lamda_wd = 1.0
-cfg.TRAIN.lamda_u = 0.001
-
-# TPS
 cfg.TRAIN.INTERVAL = 1
 cfg.TRAIN.THRESHOLD = 0.0
-cfg.TRAIN.SCALING_RATIO = (0.7, 1.3)
+cfg.TRAIN.SCALING_RATIO = (0.8, 1.2)
 
 # TEST CONFIGS
 cfg.TEST = EasyDict()
-cfg.TEST.INTERVAL = 2
 cfg.TEST.MODE = 'video_best'  # {'single', 'best'}
 cfg.TEST.MODEL = ('ACCEL_DeepLabv2',)
 cfg.TEST.MODEL_WEIGHT = (1.0,)
@@ -82,8 +67,6 @@ cfg.TEST.MULTI_LEVEL = (True,)
 cfg.TEST.IMG_MEAN = np.array((104.00698793, 116.66876762, 122.67891434), dtype=np.float32)
 cfg.TEST.RESTORE_FROM = ('',)
 cfg.TEST.SNAPSHOT_DIR = ('',)  # used in 'best' mode
-# cfg.TEST.SNAPSHOT_STEP = 1000  # used in 'best' mode
-# cfg.TEST.SNAPSHOT_START_ITER = 1000  # used in 'best' mode
 cfg.TEST.SNAPSHOT_STEP = 200  # used in 'best' mode
 cfg.TEST.SNAPSHOT_START_ITER = 200  # used in 'best' mode
 cfg.TEST.SNAPSHOT_MAXITER = 120000  # used in 'best' mode
@@ -93,8 +76,8 @@ cfg.TEST.INPUT_SIZE_TARGET = (1024, 512)
 cfg.TEST.OUTPUT_SIZE_TARGET = (2048, 1024)
 cfg.TEST.INFO_TARGET = str(project_root / 'tps/dataset/cityscapes_list/info.json')
 cfg.TEST.WAIT_MODEL = True
+cfg.TEST.INTERVAL = 1
 cfg.TEST.flow_path = '../../data/estimated_optical_flow_cityscapes_seq_val'
-cfg.TEST.demo_dir = ''
 
 def _merge_a_into_b(a, b):
     """Merge config dictionary a into config dictionary b, clobbering the

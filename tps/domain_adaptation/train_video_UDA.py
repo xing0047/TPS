@@ -201,43 +201,45 @@ def train_TPS(model, source_loader, target_loader, cfg):
         flow_int16_x10_name_trg = file_name.replace('leftImg8bit.png', str(frames[3]).zfill(6) + '_int16_x10')
         flow_int16_x10_trg = np.load(os.path.join(cfg.TRAIN.flow_path, flow_int16_x10_name_trg + '.npy'))
         trg_flow_b = torch.from_numpy(flow_int16_x10_trg / 10.0).permute(2, 0, 1).unsqueeze(0)
-        
 
         ##  augmentation  ##
-        # flip {c, b}
+        # flip {b, a}
         flip = random.random() < 0.5
         if flip:
-            trg_img_b = torch.flip(trg_img_b, [3])
-            trg_img_a = torch.flip(trg_img_a, [3])
-            trg_flow_b = torch.flip(trg_flow_b, [3])
-            trg_flow = torch.flip(trg_flow, [3])
+            trg_img_b_wk = torch.flip(trg_img_b, [3])
+            trg_img_a_wk = torch.flip(trg_img_a, [3])
+            trg_flow_b_wk = torch.flip(trg_flow_b, [3])
+        else:
+            trg_img_b_wk = trg_img_b
+            trg_img_a_wk = trg_img_a
+            trg_flow_b_wk = trg_flow_b
         # concatenate {d, c}
         trg_img_concat = torch.cat((trg_img_d, trg_img_c), 2)
         # strong augment {d, c}
         aug = T.Compose([
             T.ToPILImage(),
-            T.RandomApply([GaussianBlur(radius=random.choice([7, 9, 11]))], p=0.6),
+            T.RandomApply([GaussianBlur(radius=random.choice([5, 7, 9]))], p=0.6),
             T.RandomApply([T.ColorJitter(0.8, 0.8, 0.8, 0.2)], p=0.8),
             T.RandomGrayscale(p=0.2),
             T.ToTensor()
         ])
         trg_img_concat_st = aug(torch.squeeze(trg_img_concat)).unsqueeze(dim=0)
         # seperate {d, c}
-        trg_img_d = trg_img_concat_st[:, :, 0:512, :]
-        trg_img_c = trg_img_concat_st[:, :, 512:, :]
+        trg_img_d_st = trg_img_concat_st[:, :, 0:512, :]
+        trg_img_c_st = trg_img_concat_st[:, :, 512:, :]
         # rescale {d, c}
-        scale_ratio = np.random.randint(100.0*cfg.TRAIN.SCALING_RATIO[0], 100.0*cfg.TRAIN.SCALING_RATIO[1])/100.0
+        scale_ratio = np.random.randint(100.0 * cfg.TRAIN.SCALING_RATIO[0], 100.0 * cfg.TRAIN.SCALING_RATIO[1]) / 100.0
         trg_scaled_size = (round(input_size_target[1] * scale_ratio / 8) * 8, round(input_size_target[0] * scale_ratio / 8) * 8)
         trg_interp_sc = nn.Upsample(size=trg_scaled_size, mode='bilinear', align_corners=True)
-        trg_img_d = trg_interp_sc(trg_img_d)
-        trg_img_c = trg_interp_sc(trg_img_c)
+        trg_img_d_st = trg_interp_sc(trg_img_d_st)
+        trg_img_c_st = trg_interp_sc(trg_img_c_st)
         ##  Temporal Pseudo Supervision  ##
         # Cross Frame Pseudo Label
         with torch.no_grad():
-            trg_pred_aux, trg_pred, _, _, _, _ = model(trg_img_b.cuda(device), trg_img_a.cuda(device), trg_flow_b, device)
+            trg_pred_aux, trg_pred, _, _, _, _ = model(trg_img_b_wk.cuda(device), trg_img_a_wk.cuda(device), trg_flow_b_wk, device)
             # softmax
-            trg_prob = F.softmax(trg_pred)
-            trg_prob_aux = F.softmax(trg_pred_aux)
+            trg_prob = F.softmax(trg_pred, dim=1)
+            trg_prob_aux = F.softmax(trg_pred_aux, dim=1)
             # warp
             interp_flow = nn.Upsample(size=(trg_prob.shape[-2], trg_prob.shape[-1]), mode='bilinear', align_corners=True)
             interp_flow_ratio = trg_prob.shape[-2] / trg_flow.shape[-2]
@@ -253,7 +255,7 @@ def train_TPS(model, source_loader, target_loader, cfg):
             # rescale param
             trg_interp_sc2ori = nn.Upsample(size=(trg_pred.shape[-2], trg_pred.shape[-1]), mode='bilinear', align_corners=True)
         # forward prop
-        trg_pred_aux, trg_pred, _, _, _, _ = model(trg_img_d.cuda(device), trg_img_c.cuda(device), trg_flow_d, device)
+        trg_pred_aux, trg_pred, _, _, _, _ = model(trg_img_d_st.cuda(device), trg_img_c_st.cuda(device), trg_flow_d, device)
         # rescale
         trg_pred = trg_interp_sc2ori(trg_pred)
         trg_pred_aux = trg_interp_sc2ori(trg_pred_aux)

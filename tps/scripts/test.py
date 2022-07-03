@@ -9,7 +9,6 @@ from torch.utils import data
 from tps.model.accel_deeplabv2 import get_accel_deeplab_v2
 from tps.dataset.CityscapesSeq import CityscapesSeqDataSet
 from tps.domain_adaptation.eval_video_UDA import evaluate_domain_adaptation
-
 from tps.domain_adaptation.config import cfg, cfg_from_file
 
 warnings.filterwarnings("ignore", message="numpy.dtype size changed")
