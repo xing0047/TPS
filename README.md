@@ -1,7 +1,6 @@
 # [ECCV 2022] Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
 
-Pytorch implementation of Temporal Pseudo Supervision for Domain Adaptive Video Segmentation task.
-- [Paper](./eccv22.pdf) | [Video Demo](https://github.com/xing0047/TPS/releases/tag/demo)
+Pytorch implementation of Temporal Pseudo Supervision for Domain Adaptive Video Segmentation task. [Paper](./eccv22.pdf) | [Video Demo](https://github.com/xing0047/TPS/releases/tag/demo)
 
 ### Highlights
 - TPS is 3x faster than previous [DA-VSN](https://github.com/Dayan-Guan/DA-VSN) in training while achieves SOTA in domain adaptive video segmentation task. 
