@@ -1,6 +1,7 @@
 # [ECCV 2022] Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
 
-[Paper](./eccv22.pdf) | [Video Demo]()
+Pytorch implementation of Temporal Pseudo Supervision for Domain Adaptive Video Segmentation task. For further details please refer to:
+- [Paper](./eccv22.pdf) | [Video Demo](https://github.com/xing0047/TPS/releases/tag/demo)
 
 ### Highlights
 - TPS is 3x faster than previous [DA-VSN](https://github.com/Dayan-Guan/DA-VSN) in training while achieves SOTA in domain adaptive video segmentation task. 
@@ -26,7 +27,8 @@ Video semantic segmentation has achieved great progress under the supervision of
 |---------------|------|-------|-------|-------|-------|------|-------|-------|-----|------|-----|-------|-----|-------|------|------|
 | Source        | 56.7 | 18.7 | 78.7 |  6.0 | 22.0 | 15.6 | 81.6 | 18.3 | 80.4 | 59.9 | 66.3 |  4.5 | 16.8 | 20.4 | 10.3 | 37.1 |
 | PixMatch      | 79.4 | 26.1 | 84.6 | 16.6 | 28.7 | 23.0 | 85.0 | 30.1 | 83.7 | 58.6 | 75.8 | 34.2 | 45.7 | 16.6 | 12.4 | 46.7 |
-| DA-VSN        | 86.8 | 36.7 | 83.5 | 22.9 | 30.2 | 27.7 | 83.6 | 26.7 | 80.3 | 60.0 | 79.1 | 20.3 | 47.2 | 21.2 | 11.4 | 47.8 |
+| DA-VSN        | 86lease check 
+.8 | 36.7 | 83.5 | 22.9 | 30.2 | 27.7 | 83.6 | 26.7 | 80.3 | 60.0 | 79.1 | 20.3 | 47.2 | 21.2 | 11.4 | 47.8 |
 | **TPS**       | 82.4 | **36.9** | 79.5 | 9.0 | 26.3 | **29.4** | 78.5 | 28.2 | 81.8 | **61.2** | **80.2** | **39.8** | 40.3 | 28.5 | 31.7 | **48.9** |
 
 **Note: PixMatch is reproduced with replacing the image segmentation backbone to a video segmentaion one.**
