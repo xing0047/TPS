@@ -2,11 +2,8 @@
 albumentations==1.1.0
 certifi==2021.5.30
 cffi==1.14.6
-channelnorm-cuda==0.0.0
 charset-normalizer==2.0.11
-cloudpickle @ file:///home/conda/feedstock_root/build_artifacts/cloudpickle_1631273254894/work
 correlation-cuda==0.0.0
-cycler @ file:///home/conda/feedstock_root/build_artifacts/cycler_1635519461629/work
 cytoolz==0.11.0
 -e git+https://github.com/Dayan-Guan/DA-VSN.git@c2fca6b675bac37618015f08af5fb0341226bc34#egg=DA_VSN
 dask==0.15.2
@@ -17,24 +14,17 @@ flow-vis==0.1
 future==0.18.2
 gdown==4.2.1
 idna==3.3
-imagecodecs-lite @ file:///home/conda/feedstock_root/build_artifacts/imagecodecs-lite_1610557085799/work
 imageio==2.9.0
 joblib==1.1.0
-kiwisolver @ file:///tmp/build/80754af9/kiwisolver_1612282412546/work
 matplotlib==3.3.4
 networkx==2.5.1
 numpy==1.17.0
-olefile @ file:///home/conda/feedstock_root/build_artifacts/olefile_1602866521163/work
 opencv-python-headless==4.5.5.62
 pandas==1.1.5
 Pillow==8.3.2
 protobuf==3.18.0
 pycparser==2.20
-pyparsing @ file:///home/conda/feedstock_root/build_artifacts/pyparsing_1636757021002/work
 PySocks==1.7.1
-python-dateutil @ file:///home/conda/feedstock_root/build_artifacts/python-dateutil_1626286286081/work
-pytz @ file:///home/conda/feedstock_root/build_artifacts/pytz_1633452062248/work
-PyWavelets @ file:///tmp/build/80754af9/pywavelets_1601658315997/work
 pyyaml==5.4.1
 qudida==0.0.4
 requests==2.27.1
@@ -43,15 +33,12 @@ scikit-image==0.17.2
 scikit-learn==0.24.2
 scipy==1.5.4
 seaborn==0.11.2
-six @ file:///home/conda/feedstock_root/build_artifacts/six_1620240208055/work
 soupsieve==2.3.1
 tensorboardX==2.4
 threadpoolctl==3.0.0
 tifffile==2020.9.3
-toolz @ file:///home/conda/feedstock_root/build_artifacts/toolz_1636177962100/work
 torch==1.2.0
 torchvision==0.4.0
-tornado @ file:///home/conda/feedstock_root/build_artifacts/tornado_1610094701020/work
 tqdm==4.62.3
 typing_extensions==4.0.1
 urllib3==1.26.8
