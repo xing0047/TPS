@@ -1,6 +1,6 @@
 # [ECCV 2022] Domain Adaptive Video Segmentation via Temporal Pseudo Supervision
 
-[PDF](./eccv22.pdf) | [Video Demo]()
+[Paper](./eccv22.pdf) | [Video Demo]()
 
 ### Highlights
 - TPS is 3x faster than previous [DA-VSN](https://github.com/Dayan-Guan/DA-VSN) in training while achieves SOTA in domain adaptive video segmentation task. 
